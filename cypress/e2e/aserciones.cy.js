@@ -7,7 +7,7 @@ describe("Asercciones", () => {
   it("Asercion", () => {
     cy.visit("/automation-practice-form");
     //verificar si estoy en la pagina correcta
-    cy.url.should("include", "demoqa.com");
+    cy.url().should("include", "demoqa.com");
     cy.get("#firstName").should("be.visible");
     //se pueden concatenar aserciones
     cy.get("#firstName")
