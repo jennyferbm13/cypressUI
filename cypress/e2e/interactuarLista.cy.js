@@ -24,5 +24,11 @@ describe("Input", () => {
           $elemento.click();
         }
       });
+
+    cy.get("#react-select-6-listbox")
+      .children()
+      .children()
+      .contains("Red")
+      .click();
   });
 });
