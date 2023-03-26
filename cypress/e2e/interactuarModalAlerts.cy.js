@@ -24,4 +24,23 @@ describe("Modal y alerts", () => {
 
     cy.constains("You select Ok").should("exist");
   });
+
+  it("Interactuar con alert click OK", () => {
+    cy.visit("/alert");
+    cy.get("#confirmButton").click();
+    cy.on("window:confirm", (confirm) => {
+      expect(confirm).to.equal("Do you confirm action?");
+    });
+    cy.constains("Ypu selected ok").should("exist");
+  });
+
+  it("Interactuar con alert click cancel", () => {
+    cy.visit("/alert");
+    cy.get("#confirmButton").click();
+    cy.on("window:confirm", (confirm) => {
+      expect(confirm).to.equal("Do you confirm action?");
+      return false;
+    });
+    cy.constains("Ypu selected ok").should("exist");
+  });
 });
